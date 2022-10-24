@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "685958257377",
+    "project_id": "flutter-health-app",
+    "storage_bucket": "flutter-health-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685958257377:android:ecbc22381dcdbb1bd5b5a0",
+        "android_client_info": {
+          "package_name": "com.example.flutter_health_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685958257377-6gicd8gf2vin8i1nb75e7gdi9v3ptcs8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_health_app",
+            "certificate_hash": "886db7c6d49973a633293c831428926478406f3d"
+          }
+        },
+        {
+          "client_id": "685958257377-rnqu0rf76c3rf2m009vj5nos1n3kevmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLdPBFvOcdHb4wrtz70SRP9xFJ0obK-p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685958257377-rnqu0rf76c3rf2m009vj5nos1n3kevmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
