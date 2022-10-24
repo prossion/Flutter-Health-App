@@ -4,41 +4,50 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_health_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:flutter_health_app/blocs/auth_bloc/auth_state.dart';
+import 'package:flutter_health_app/blocs/health_bloc/health_bloc.dart';
 import 'package:flutter_health_app/repositories/auth_repository.dart';
+import 'package:flutter_health_app/repositories/health_repository.dart';
 import 'package:flutter_health_app/screens/home_page.dart';
 import 'package:flutter_health_app/screens/sign_in_screen.dart';
-import 'package:flutter_health_app/screens/sign_up_screen.dart';
+import 'package:flutter_health_app/services/health_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  final healthRepository = HealthRepository(services: HealthServices());
+  runApp(MyApp(
+    healthRepository: healthRepository,
+  ));
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  final HealthRepository healthRepository;
+  const MyApp({super.key, required this.healthRepository});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (_) => FirebaseAuthRepository(),
-      child: BlocProvider<AuthBloc>(
-        create: (context) => AuthBloc(
-          authRepository:
-              RepositoryProvider.of<FirebaseAuthRepository>(context),
-        ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<AuthBloc>(
+            create: (context) => AuthBloc(
+              authRepository:
+                  RepositoryProvider.of<FirebaseAuthRepository>(context),
+            ),
+          ),
+          BlocProvider<HealthBloc>(
+            create: (context) => HealthBloc(healthRepository: healthRepository),
+          ),
+        ],
         child: MaterialApp(
-          home: BlocBuilder<AuthBloc, AuthState>(
-            builder: (context, state) {
-              if (state is UnAuthState) {
-                return const SignInScreen();
-              } else {
+          home: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
                 return const HomePage();
+              } else {
+                return const SignInScreen();
               }
             },
           ),

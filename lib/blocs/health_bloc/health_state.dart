@@ -1,26 +1,29 @@
 import 'package:equatable/equatable.dart';
+import 'package:health/health.dart';
 
 class HealthState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class HealthInitialState extends Equatable {
+class HealthInitialState extends HealthState {
   @override
   List<Object?> get props => [];
 }
 
-class HealthLoadingState extends Equatable {
+class HealthLoadingState extends HealthState {
   @override
   List<Object?> get props => [];
 }
 
-class HealthLoadedState extends Equatable {
+class HealthLoadedState extends HealthState {
+  final List<HealthDataPoint> points;
+  HealthLoadedState({required this.points});
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [points];
 }
 
-class HealthErrorState extends Equatable {
+class HealthErrorState extends HealthState {
   @override
   List<Object?> get props => [];
 }

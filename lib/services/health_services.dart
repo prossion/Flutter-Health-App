@@ -37,6 +37,7 @@ class HealthServices {
       /// if the request is not successful
       throw HealthError();
     }
+    print("Steps: $healthData");
     return healthData;
   }
 }

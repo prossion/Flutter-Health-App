@@ -5,7 +5,7 @@ class HealthEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class HealthGetDataEvent extends Equatable {
+class HealthGetDataEvent extends HealthEvent {
   @override
   List<Object?> get props => [];
 }
