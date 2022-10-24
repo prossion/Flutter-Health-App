@@ -1,11 +1,11 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_bloc.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_event.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_state.dart';
-import 'package:flutter_health_app/screens/home_page.dart';
-import 'package:flutter_health_app/screens/sign_up_screen.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_bloc.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_event.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_state.dart';
+import 'package:flutter_health/screens/home_page.dart';
+import 'package:flutter_health/screens/sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -150,7 +150,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
-                              ImageIcon(AssetImage("assets/icons/google.png")),
+                              // ImageIcon(AssetImage("assets/icons/google.png")),
                               SizedBox(
                                 width: 8,
                               ),

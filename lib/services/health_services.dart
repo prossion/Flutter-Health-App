@@ -3,43 +3,38 @@ import 'package:health/health.dart';
 class HealthServices {
   static HealthFactory health = HealthFactory();
 
-  Future<List<HealthDataPoint>> fetchHealthData() async {
-    /// Give a HealthDataType with the given identifier
+  Future<Map<String, int>> fetchHealthData() async {
     final types = [
       HealthDataType.STEPS,
       HealthDataType.ACTIVE_ENERGY_BURNED,
     ];
 
-    /// Give a permissions for the given HealthDataTypes
-    final permissions = [
-      HealthDataAccess.READ,
-      HealthDataAccess.READ,
-    ];
-
-    /// current time
     final now = DateTime.now();
+    final midnight = DateTime(now.year, now.month, now.day);
 
-    /// Give a yesterday's time
-    final yesterday = now.subtract(const Duration(days: 1));
+    final healthDataList = await health.getHealthDataFromTypes(
+      midnight,
+      now,
+      types,
+    );
 
-    /// to store HealthDataPoint
-    List<HealthDataPoint> healthData = [];
+    var totalStepsDouble = 0.0;
+    var totalCaloriesDouble = 0.0;
 
-    /// request google Authorization when the app is opened for the first time
-    bool requested =
-        await health.requestAuthorization(types, permissions: permissions);
-
-    ///check if the request is successful
-    if (requested) {
-      /// fetch the data from the health store
-      healthData = await health.getHealthDataFromTypes(yesterday, now, types);
-    } else {
-      /// if the request is not successful
-      throw HealthError();
+    for (final dataPoint in healthDataList) {
+      if (dataPoint.type == HealthDataType.STEPS) {
+        // Count as steps
+        totalStepsDouble += double.tryParse(dataPoint.value.toString()) ?? 0.0;
+      } else if (dataPoint.type == HealthDataType.ACTIVE_ENERGY_BURNED) {
+        totalCaloriesDouble +=
+            double.tryParse(dataPoint.value.toString()) ?? 0.0;
+      }
     }
-    print("Steps: $healthData");
-    return healthData;
+
+    final dataMap = {
+      'totalSteps': totalStepsDouble.round(),
+      'totalCalories': totalCaloriesDouble.round(),
+    };
+    return dataMap;
   }
 }
-
-class HealthError extends Error {}

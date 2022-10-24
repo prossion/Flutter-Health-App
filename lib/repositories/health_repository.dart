@@ -1,4 +1,4 @@
-import 'package:flutter_health_app/services/health_services.dart';
+import 'package:flutter_health/services/health_services.dart';
 import 'package:health/health.dart';
 
 class HealthRepository {
@@ -6,5 +6,5 @@ class HealthRepository {
 
   HealthRepository({required this.services});
 
-  Future<List<HealthDataPoint>> fetchHealthData() => services.fetchHealthData();
+  Future<Map<String, int>> fetchHealthData() => services.fetchHealthData();
 }

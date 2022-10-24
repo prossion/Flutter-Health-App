@@ -1,8 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_health_app">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    package="com.example.flutter_health">
    <application
-        android:label="flutter_health_app"
+        android:label="flutter_health"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,11 +1,15 @@
+import 'package:achievement_view/achievement_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_bloc.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_event.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_state.dart';
-import 'package:flutter_health_app/screens/home_page.dart';
-import 'package:flutter_health_app/screens/sign_in_screen.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_bloc.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_event.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_state.dart';
+import 'package:flutter_health/blocs/get_achievements/get_achievements_bloc.dart';
+import 'package:flutter_health/blocs/get_achievements/get_achievements_event.dart';
+import 'package:flutter_health/models/achievement_model.dart';
+import 'package:flutter_health/screens/home_page.dart';
+import 'package:flutter_health/screens/sign_in_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -197,9 +201,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
         SignUpRequested(_emailController.text, _passwordController.text),
       );
     }
+    AchievementView(context,
+            title: 'Congratulations!',
+            subTitle: 'You sucessfull registration in app')
+        .show();
+    BlocProvider.of<GetAchievementsBloc>(context).add(UpdateAchievementsEvent(
+        collectionPath: 'achievements',
+        docPath: 'registration_achievement',
+        dataNeedUpdate: const {'completed': true}));
   }
 
   void _authenticateWithGoogle(context) {
     BlocProvider.of<AuthBloc>(context).add(GoogleSignInRequested());
+    AchievementView(context,
+            title: 'Congratulations!',
+            subTitle: 'You sucessfull registration in app')
+        .show();
+    BlocProvider.of<GetAchievementsBloc>(context).add(UpdateAchievementsEvent(
+        collectionPath: 'achievements',
+        docPath: 'registration_achievement',
+        dataNeedUpdate: const {'completed': true}));
   }
 }

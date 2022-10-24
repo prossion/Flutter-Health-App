@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_health_app/screens/achievments_screen.dart';
-import 'package:flutter_health_app/screens/health_screen.dart';
+import 'package:flutter_health/screens/achievments_screen.dart';
+import 'package:flutter_health/screens/health_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

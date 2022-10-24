@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_event.dart';
-import 'package:flutter_health_app/blocs/auth_bloc/auth_state.dart';
-import 'package:flutter_health_app/repositories/auth_repository.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_event.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_state.dart';
+import 'package:flutter_health/repositories/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final FirebaseAuthRepository authRepository;

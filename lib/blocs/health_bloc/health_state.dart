@@ -17,10 +17,11 @@ class HealthLoadingState extends HealthState {
 }
 
 class HealthLoadedState extends HealthState {
-  final List<HealthDataPoint> points;
-  HealthLoadedState({required this.points});
+  final int totalSteps;
+  final int totalCalories;
+  HealthLoadedState({required this.totalSteps, required this.totalCalories});
   @override
-  List<Object?> get props => [points];
+  List<Object?> get props => [totalSteps, totalCalories];
 }
 
 class HealthErrorState extends HealthState {
