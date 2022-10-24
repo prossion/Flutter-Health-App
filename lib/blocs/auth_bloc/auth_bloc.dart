@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } catch (e) {
         emit(AuthErrorState(e.toString()));
         emit(UnAuthState());
+        rethrow;
       }
     }));
     on<SignUpRequested>(((event, emit) async {
@@ -27,6 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } catch (e) {
         emit(AuthErrorState(e.toString()));
         emit(UnAuthState());
+        rethrow;
       }
     }));
     on<GoogleSignInRequested>(((event, emit) async {
@@ -37,6 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } catch (e) {
         emit(AuthErrorState(e.toString()));
         emit(UnAuthState());
+        rethrow;
       }
     }));
     on<SignOutRequested>(((event, emit) async {
