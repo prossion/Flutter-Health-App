@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_bloc.dart';
+import 'package:flutter_health/blocs/auth_bloc/auth_event.dart';
 import 'package:flutter_health/blocs/health_bloc/health_bloc.dart';
 import 'package:flutter_health/blocs/health_bloc/health_event.dart';
 import 'package:flutter_health/blocs/health_bloc/health_state.dart';
@@ -23,6 +25,13 @@ class _HealthScreenState extends State<HealthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [
+        IconButton(
+            onPressed: () {
+              BlocProvider.of<AuthBloc>(context).add(SignOutRequested());
+            },
+            icon: Icon(Icons.logout))
+      ]),
       body: BlocBuilder<HealthBloc, HealthState>(
         builder: (context, state) {
           if (state is HealthLoadingState) {
