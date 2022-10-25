@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>60269068939-d14ft85om5ncng4bq7n3mcbioh0a7prd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.60269068939-d14ft85om5ncng4bq7n3mcbioh0a7prd</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>60269068939-60ikccedlgt089qitfknb53k8hs2u56s.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDQMCn9eMtJRMOh_JcSbd12ST3vOo_Fxag</string>
+	<key>GCM_SENDER_ID</key>
+	<string>60269068939</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterHealth</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-news-6a0a8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-news-6a0a8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:60269068939:ios:bed6e39d4edf748acb4a8e</string>
+</dict>
+</plist>

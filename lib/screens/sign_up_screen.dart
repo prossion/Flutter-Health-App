@@ -174,7 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
-                              ImageIcon(AssetImage("assets/icons/google.png")),
+                              // ImageIcon(AssetImage("assets/icons/google.png")),
                               SizedBox(
                                 width: 8,
                               ),
